@@ -1,6 +1,6 @@
 const readData = require('../readFromFile');
 
-const getNumberOfBagsInShinyGoldBag = (searchBag, data) => {
+const getNumberOfBagsInBag = (searchBag, data) => {
     let actualBag = data.filter(bag => bag[0].includes(searchBag));
     actualBag = actualBag[0];
 
@@ -15,7 +15,7 @@ const getNumberOfBagsInShinyGoldBag = (searchBag, data) => {
         let bagsNumber = parseInt(bag[0], 10);
         let bagName = `${bag[1]} ${bag[2]}`;
 
-        answer += bagsNumber + bagsNumber * getNumberOfBagsInShinyGoldBag(bagName, data);
+        answer += bagsNumber + bagsNumber * getNumberOfBagsInBag(bagName, data);
     });
 
     return answer;
@@ -47,5 +47,5 @@ readData((response) => {
     // first part day 7
     console.log('part 1: ' + getNumbersOfEventualBags([myBag], response));
     // second part day 7
-    console.log('part 2: ' + getNumberOfBagsInShinyGoldBag(myBag, response));
+    console.log('part 2: ' + getNumberOfBagsInBag(myBag, response));
 });
