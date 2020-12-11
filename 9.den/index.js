@@ -1,9 +1,5 @@
 const readData = require("../readFromFile");
 
-const reduceArray = (arr, callback) => {
-    
-};
-
 readData(response => {
     response = response.split("\n").map(Number);
     let preamble = response.slice(0, 25);
